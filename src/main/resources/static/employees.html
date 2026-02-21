@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="css/styles.css">
+ <script>
+    if (!sessionStorage.getItem("role")) {
+        window.location.href = "login.html";
+    }
+</script>
+
+    
+<script>
+    const role = sessionStorage.getItem("role");
+
+    if (!role || role !== "ADMIN") {
+        alert("Access Denied");
+        window.location.href = "index.html";
+    }
+</script>
+    
+
+    
+</head>
+<body>
+
+<h2>Employee Management</h2>
+
+<div class="card">
+    <input type="hidden" id="empId">
+
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="department" placeholder="Department">
+    <input type="number" id="salary" placeholder="Salary">
+
+    <br><br>
+    <button onclick="saveEmployee()" id="save">Save</button>
+    <button onclick="resetForm()"id="clear">Clear</button>
+</div>
+
+<br>
+
+<table border="1" width="80%" align="center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="empTable"></tbody>
+</table>
+
+<br>
+
+<div class="action-buttons">
+    <button onclick="goBack()" id="back">Back</button>
+    <button onclick="logout()" id="logout">Logout</button>
+</div>
+
+
+<script src="js/employees.js"></script>
+
+</body>
+</html>

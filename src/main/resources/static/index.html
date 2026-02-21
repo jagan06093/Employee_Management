@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Protect dashboard -->
+    <script>
+        if (!sessionStorage.getItem("role")) {
+            window.location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h3>Employee Management System</h3>
+    <div>
+        <span id="userInfo"></span>
+        <button onclick="logout()" id="indexLogout">Logout</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<h3>Dashboard</h3>
+<hr>
+
+<!-- EMPLOYEE LIST -->
+<h3>Employee List</h3>
+
+<table border="1" width="80%" align="center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody id="empTable"></tbody>
+</table>
+
+<br>
+
+<!-- ACTION BUTTON -->
+<div style="text-align:center;">
+    <button onclick="goToEmployees()" id="manageEmp">
+        Manage Employees
+    </button>
+</div>
+
+<!-- SCRIPT -->
+<script src="js/index.js"></script>
+
+</body>
+</html>
