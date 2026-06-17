@@ -72,7 +72,7 @@ function logout() {
 
 
 
-const API_URL = "http://localhost:8080/employees";
+const API_URL = "/employees";
 
 // Protect page
 if (!sessionStorage.getItem("role")) {

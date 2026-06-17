@@ -63,8 +63,9 @@ function login() {
         msg.className = "error";
         return; // STOP HERE
     }
+	
 
-    fetch("http://localhost:8080/auth/login", {
+    fetch("/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
